@@ -55,7 +55,7 @@ def publish_to_kafka(producer, topic, message_l):
         # this time API is invoked to simulate the streaming source of a web App; we create the delay
         # and every 1/10th of second an input vector of information is sent to the Topic and partition of destination
         #time.sleep(0.1)
-        producer.send(topic, value = json.dumps(kafka_dict))
+        producer.send(topic, value = json.dumps(kafka_dict).decode('utf-8'))
         time.sleep(0.1)
         producer.flush()
 """
